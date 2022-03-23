@@ -1,0 +1,36 @@
+{
+  "name": "image-api-udacity",
+  "version": "1.0.0",
+  "description": "Image Processing API for Udacity nanodegree",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickdloucks/image-api-udacity.git"
+  },
+  "keywords": [
+    "image-api"
+  ],
+  "author": "Nick Loucks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nickdloucks/image-api-udacity/issues"
+  },
+  "homepage": "https://github.com/nickdloucks/image-api-udacity#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jasmine": "^4.0.0",
+    "@types/node": "^17.0.23",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "gh-pages": "^3.2.3",
+    "jasmine": "^4.0.2",
+    "jasmine-spec-reporter": "^7.0.0"
+  }
+}
