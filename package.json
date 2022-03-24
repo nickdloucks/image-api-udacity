@@ -4,7 +4,8 @@
   "description": "Image Processing API for Udacity nanodegree",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "pformat": "prettier --config .prettierrc.json src/**/*.ts --write"
   },
   "repository": {
     "type": "git",
