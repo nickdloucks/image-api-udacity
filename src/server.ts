@@ -11,8 +11,9 @@ app.listen(port, () => {
     console.log(`server listening at http://localhost:${port}`);
 });
 
-const resize = function(req: express.Request, res: express.Response, next: NextFunction): void {
+const resize = async function(req: express.Request, res: express.Response, next: NextFunction): Promise<void> {
     // res.send(resizePic());
+    await fsPromises.writeFile(req.path, resizePic(req.path));
     next();
 }
 // const resizePic = async ()=>{
