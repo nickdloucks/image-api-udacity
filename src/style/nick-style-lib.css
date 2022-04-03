@@ -134,4 +134,5 @@ a:visited{
     grid-auto-rows: minmax(30px, auto);
     grid-gap: 20px;
     padding: 10px;
+    border-radius: 0.25rem;
 }
