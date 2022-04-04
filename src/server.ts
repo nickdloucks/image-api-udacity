@@ -13,7 +13,9 @@ app.listen(port, () => {
 
 const resize = async function(req: express.Request, res: express.Response, next: NextFunction): Promise<void> {
     // res.send(resizePic());
-    await fsPromises.writeFile(req.path, resizePic(req.path));
+    // await fsPromises.writeFile(req.path, resizePic(req.path));
+    // only call resize function if the pic has not already been resized
+    // make resize function dynamic so that the height & width can be adjusted
     next();
 }
 // const resizePic = async ()=>{
