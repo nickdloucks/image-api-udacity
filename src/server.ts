@@ -4,39 +4,10 @@ import { NextFunction } from 'express-serve-static-core';
 import { promises as fsPromises } from 'fs';
 import sharp from 'sharp';
 
-const app = express();
-const port = process.env.PORT;
+const server = express();
 
-app.listen(port, () => {
+const port = process.env.PORT || 3001;
+
+server.listen(port, () => {
     console.log(`server listening at http://localhost:${port}`);
 });
-
-const resize = async function(req: express.Request, res: express.Response, next: NextFunction): Promise<void> {
-    // res.send(resizePic());
-    // await fsPromises.writeFile(req.path, resizePic(req.path));
-    // only call resize function if the pic has not already been resized
-    // make resize function dynamic so that the height & width can be adjusted
-    next();
-}
-// const resizePic = async ()=>{
-//     try{
-//         const smallerPic = await fsPromises.rename('./images/fjord.jpg', './images/fjord.jpg?width=200&height=200');
-//         return smallerPic;
-//     }catch(err){
-//         console.log(err);
-//     }
-// }
-const resizePic = async (imgPath: string) => {
-    let imgInfo;
-    await sharp(imgPath)
-    .resize(300,200)
-    .toFile(`${imgPath}?width=300&height=200`, function(err, info){ 
-        if (err){console.log(err);}
-        imgInfo = info;
-    });
-    return imgInfo;
-}
-
-app.get('/images/fjord.jpg', resize, (req, res)=> {
-    resize(req, res, res.send);
-})
