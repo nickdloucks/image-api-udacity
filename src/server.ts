@@ -9,7 +9,16 @@ server.use(express.static('public'));
 
 server.get('/index.html', (req, res)=>{
     res.send('../public/index.html');
-})
+});
+
+server.get('/*.jpg', async (req, res)=>{
+    const newImg = await sharp('image.jpg')
+        .resize(200)
+        .toFile('thumb/output.jpg', function(err){
+            console.log(err);
+        });
+    res.send(newImg);
+});
 
 const port = process.env.PORT || 3003;
 
