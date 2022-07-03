@@ -12,6 +12,7 @@ server.get('/index.html', (req, res)=>{
 });
 
 server.get('/*.jpg', async (req, res)=>{
+    // if thumb/ files contains args[0], return thumbnail version
     const newImg = await sharp('image.jpg')
         .resize(200)
         .toFile('thumb/output.jpg', function(err){
