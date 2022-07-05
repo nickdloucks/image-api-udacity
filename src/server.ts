@@ -13,6 +13,12 @@ server.get('/index.html', (req, res)=>{
 
 server.get('/*.jpg', async (req, res)=>{
     // if thumb/ files contains args[0], return thumbnail version
+
+    // use a REGEX to determine file name: ending in  '*.thumb.jpg' for example
+    // fetch(<thumbnail>) // try to fetch the thumbnail
+    //     .reject() //if Promise rejects, create the new image with Sharp using the bigger image
+    //     .then(smallImg => smallImg)
+
     const newImg = await sharp('image.jpg')
         .resize(200)
         .toFile('thumb/output.jpg', function(err){
